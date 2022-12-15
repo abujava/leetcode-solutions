@@ -1,5 +1,11 @@
 package com.abujava;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 /**
  * This class not documented :(
  *
@@ -8,43 +14,28 @@ package com.abujava;
  */
 public class Strings {
     /**
-     * Hard <a href="https://leetcode.com/problems/distinct-subsequences">115. Distinct Subsequences</a>
+     * Medium <a href="https://leetcode.com/problems/group-anagrams/">49. Group Anagrams</a>
      */
-    public static int numDistinct(String s, String t) {
-        if (t.length() > s.length())
-            return 0;
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> collect = Arrays.stream(strs).collect(Collectors.groupingBy(s -> sumChars(s)));
+        return new ArrayList<>(collect.values());
+    }
 
-        int[] tArr = new int[t.length()];
-        for (int i = 0; i < tArr.length; i++) {
-            tArr[i] = i;
+    public static String sumChars(String s) {
+        // I'm sorry Leetcode
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);
+        StringBuilder res = new StringBuilder();
+        for (char aChar : chars) {
+            res.append(aChar);
         }
-
-        int sum = 0;
-
-        while (true) {
-            String text = "";
-            for (int i = 0; i < tArr.length; i++) {
-                text += s.charAt(tArr[i]);
-            }
-            if (text.equals(t)) {
-                sum++;
-            }
-
-            for (int i = tArr.length - 1; i >= 0; i--) {
-                if (tArr[i] != ((s.length()) - ((tArr.length) - i))) {
-                    tArr[i]++;
-                    break;
-                } else if (i == 0) {
-                    return sum;
-                }
-            }
-        }
+        return res.toString();
     }
 
     /**
      * Hard <a href="https://leetcode.com/problems/distinct-subsequences">115. Distinct Subsequences</a>
      */
-    public static int numDistinct2(String s, String t) {
+    public static int numDistinct(String s, String t) {
         if (s == null || t == null) {
             if (s == null && t == null) {
                 return 1;
