@@ -1,6 +1,8 @@
 package com.abujava;
 
-import java.util.*;
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -12,36 +14,8 @@ import java.util.stream.Stream;
  */
 public class Main {
     public static void main(String[] args) {
-        String list[] = {"9", "1", "1", "9", "2", "7", "2"};
-        List<String> unique = new ArrayList<>();
-
-        for (int i = 0; i < list.length; i++) {
-            int count = unique.size();
-
-            if (count == 0) {
-                unique.add(list[i]);
-            } else {
-                boolean available = false;
-                for (int j = 0; j < count; j++) {
-                    if (unique.get(j).equals(list[i])) {
-                        available = true;
-                        break;
-                    }
-                }
-
-                if (!available) {
-                    unique.add(list[i]);
-                }
-            }
-        }
-
-        //checking latest 'unique' value
-        for (int i = 0; i < unique.size(); i++) {
-            System.out.println(unique.get(i));
-        }
-
-//        var i = distinctWords("eat","tea","tan","ate","nat","bat","ac","bd","aac","bbd","aacc","bbdd","acc","bdd");
-//        System.out.println(i);
+        var i = Strings.reverseWords("   fly me   to   the moon  ");
+        System.out.println(i);
     }
 
     // Using streams

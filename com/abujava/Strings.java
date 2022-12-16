@@ -1,5 +1,6 @@
 package com.abujava;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +14,45 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+    /**
+     * Medium <a href="https://leetcode.com/problems/reverse-words-in-a-string/description/">151. Reverse Words in a String</a>
+     */
+    public static String reverseWords(String s) {
+        String[] split = s.replaceAll("\\s{2,}", " ").trim().split(" ");
+        StringBuilder builder = new StringBuilder();
+        for (int i = split.length - 1; i >= 0; i--) {
+            builder.append(split[i]);
+            if (i != 0){
+                builder.append(" ");
+            }
+        }
+        return builder.toString();
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/length-of-last-word/">58. Length of Last Word</a>
+     */
+    public static int lengthOfLastWord(String s) {
+        int count = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
+                if (count > 0) {
+                    return count;
+                }
+            } else {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Medium <a href="https://leetcode.com/problems/multiply-strings/">43. Multiply Strings</a>
+     */
+    public String multiply(String num1, String num2) {
+        return new BigInteger(num1).multiply(new BigInteger(num2)).toString();
+    }
+
     /**
      * Medium <a href="https://leetcode.com/problems/group-anagrams/">49. Group Anagrams</a>
      */
