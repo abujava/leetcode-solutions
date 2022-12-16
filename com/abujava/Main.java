@@ -6,6 +6,8 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.abujava.HashTable.majorityElement;
+
 /**
  * This class not documented :(
  *
@@ -14,7 +16,7 @@ import java.util.stream.Stream;
  */
 public class Main {
     public static void main(String[] args) {
-        var i = Strings.reverseWords("   fly me   to   the moon  ");
+        var i = majorityElement(new int[]{3,2,3});
         System.out.println(i);
     }
 
