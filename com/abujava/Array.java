@@ -9,6 +9,17 @@ import java.util.*;
  * @since 12/5/2022
  */
 public class Array {
+    public static boolean isHappy(int n) {
+        if (n == 1) return true;
+
+        char[] chars = (n + "").toCharArray();
+        int sum = 0;
+        for (int i = 0; i < chars.length; i++) {
+            sum += (Character.getNumericValue(chars[i]) * Character.getNumericValue(chars[i]));
+        }
+        return isHappy(sum);
+    }
+
     public static int uniqueMorseRepresentations(String[] words) {
         String[] letterArr = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
 

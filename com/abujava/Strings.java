@@ -14,6 +14,32 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+    public static boolean isPalindrome(String s) {
+        boolean pal = false;
+        for (int i = 0, j = s.length() - 1; i < s.length() / 2;) {
+            char head = s.charAt(i);
+            char tail = s.charAt(j);
+
+            if (!Character.isLetter(head)) {
+                i++;
+                continue;
+            }
+            if (!Character.isLetter(tail)) {
+                j--;
+                continue;
+            }
+
+            if (Character.toLowerCase(head) == Character.toLowerCase(tail)){
+                i++;
+                j--;
+                pal = true;
+            }else {
+                return false;
+            }
+        }
+        return pal;
+    }
+
     /**
      * Medium <a href="https://leetcode.com/problems/reverse-words-in-a-string/description/">151. Reverse Words in a String</a>
      */
@@ -22,7 +48,7 @@ public class Strings {
         StringBuilder builder = new StringBuilder();
         for (int i = split.length - 1; i >= 0; i--) {
             builder.append(split[i]);
-            if (i != 0){
+            if (i != 0) {
                 builder.append(" ");
             }
         }
