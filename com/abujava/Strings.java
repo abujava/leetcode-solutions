@@ -14,9 +14,35 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+
+    public static int numDecodings(String s) {
+        if (s.startsWith("0")) return 0;
+
+        int sum = 0;
+
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            int ch = Character.getNumericValue(chars[i]);
+            if (subNumDecodings(ch))
+                sum++;
+            if (chars.length - 1 < i) {
+                int a = Integer.parseInt(ch + Integer.toString(Character.getNumericValue(chars[i + 1])));
+                if (subNumDecodings(a))
+                    sum++;
+            }
+        }
+        return sum;
+    }
+
+//    47373
+//    01234
+    public static boolean subNumDecodings(int num) {
+        return (num > 0 && num < 27);
+    }
+
     public static boolean isPalindrome(String s) {
         boolean pal = false;
-        for (int i = 0, j = s.length() - 1; i < s.length() / 2;) {
+        for (int i = 0, j = s.length() - 1; i < s.length() / 2; ) {
             char head = s.charAt(i);
             char tail = s.charAt(j);
 
@@ -29,11 +55,11 @@ public class Strings {
                 continue;
             }
 
-            if (Character.toLowerCase(head) == Character.toLowerCase(tail)){
+            if (Character.toLowerCase(head) == Character.toLowerCase(tail)) {
                 i++;
                 j--;
                 pal = true;
-            }else {
+            } else {
                 return false;
             }
         }

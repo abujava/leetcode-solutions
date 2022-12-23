@@ -4,6 +4,33 @@ package com.abujava;
  * Definition for singly-linked list.
  */
 public class LinkedList {
+    public static ListNode reverseList(ListNode head) { // 1, 2, 3, 4
+        var previous = head;          // 1, 2, 3, 4     |
+        var current = head.next;      // 2, 3, 4        |
+        while (current != null) {     // true           |
+            var next = current.next;  // 3, 4           |
+
+            current.next = previous;  //
+            previous = current;
+            previous.next = null;
+            current = next;
+        }
+
+        return previous;
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a>
+     */
+    public static ListNode middleNode(ListNode head) {
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            head = head.next;
+        }
+        return head;
+    }
+
     /**
      * Easy <a href="https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/">1290. Convert Binary Number in a Linked List to Integer</a>
      */
@@ -33,10 +60,6 @@ public class LinkedList {
     public static int power(int val, int pow) {
         if (pow == 0) return 1;
         return val * power(val, pow - 1);
-    }
-
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-        return null;
     }
 
     public static boolean isPalindrome(ListNode head) {

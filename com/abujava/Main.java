@@ -1,10 +1,6 @@
 package com.abujava;
 
 import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * This class not documented :(
@@ -14,20 +10,8 @@ import java.util.stream.Stream;
  */
 public class Main {
     public static void main(String[] args) {
-        ListNode listNode =
-                new ListNode(1,
-                        new ListNode(0,
-                                new ListNode(1,
-                                        new ListNode(1, null))));
-        var res = LinkedList.getDecimalValue(listNode);
+        var res = Array.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4});
         System.out.println(res);
-    }
-
-    // Using streams
-    public static Set<String> distinctWords(String... input) {
-        return Stream.of(input)
-                .flatMap(s -> Stream.of(s.split("\\s+")))
-                .collect(Collectors.toCollection(() -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER)));
     }
 
     private static int[][] buildMatrix(int row, int col) {

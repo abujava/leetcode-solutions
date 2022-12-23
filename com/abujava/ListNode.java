@@ -23,4 +23,12 @@ public class ListNode {
             temp = temp.next;
         }
     }
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "val=" + val +
+                ", next=" + next +
+                '}';
+    }
 }

@@ -9,6 +9,25 @@ import java.util.*;
  * @since 12/5/2022
  */
 public class Array {
+    /**
+     * Hard <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">4. Median of Two Sorted Arrays</a>
+     */
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // fixme The overall run time complexity should be O(log (m+n)).
+        int length = nums1.length + nums2.length;
+        int[] arr = new int[length];
+        System.arraycopy(nums1, 0, arr, 0, nums1.length);
+        System.arraycopy(nums2, 0, arr, nums1.length, nums2.length);
+
+        Arrays.sort(arr);
+        if (length % 2 == 1) {
+            return arr[length / 2];
+        } else {
+            return (arr[length / 2] + arr[length / 2 - 1]) / 2d;
+        }
+
+    }
+
     public static boolean isHappy(int n) {
         if (n == 1) return true;
 
