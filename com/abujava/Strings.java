@@ -14,6 +14,17 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+    /**
+     * Easy <a href="https://leetcode.com/problems/reverse-string">344. Reverse String</a>
+     */
+    public static void reverseString(char[] s) {
+        for (int i = 0; i < s.length / 2; i++) {
+            char temp = s[i];
+            s[i] = s[s.length - 1 - i];
+            s[s.length - 1 - i] = temp;
+        }
+    }
+
 
     public static int numDecodings(String s) {
         if (s.startsWith("0")) return 0;
@@ -34,7 +45,7 @@ public class Strings {
         return sum;
     }
 
-//    47373
+    //    47373
 //    01234
     public static boolean subNumDecodings(int num) {
         return (num > 0 && num < 27);

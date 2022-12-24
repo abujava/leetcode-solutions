@@ -9,6 +9,25 @@ import java.util.*;
  * @since 12/5/2022
  */
 public class Array {
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three/">2455. Average Value of Even Numbers That Are Divisible by Three</a>
+     */
+    public static int averageValue(int[] nums) {
+        int sum = 0;
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 3 == 0 && nums[i] % 2 == 0) {
+                sum += nums[i];
+                count++;
+            }
+            if (sum > 0 && i == nums.length - 1) {
+                return sum / count;
+            }
+        }
+        return 0;
+    }
+
     /**
      * Hard <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">4. Median of Two Sorted Arrays</a>
      */

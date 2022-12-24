@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = Array.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4});
+        var res = HashTable.majorityElement(new int[]{3, 2, 3});
         System.out.println(res);
     }
 
