@@ -2,13 +2,18 @@ package com.abujava;
 
 import java.util.*;
 
-/**
- * This class not documented :(
- *
- * @author Muhammad Mo'minov
- * @since 12/5/2022
- */
 public class Array {
+    /**
+     * Easy <a href="https://leetcode.com/problems/valid-anagram">242. Valid Anagram</a>
+     */
+    public static boolean isAnagram(String s, String t) {
+        char[] sChars = s.toCharArray();
+        Arrays.sort(sChars);
+        char[] tChars = t.toCharArray();
+        Arrays.sort(tChars);
+
+        return Arrays.equals(sChars, tChars);
+    }
 
     /**
      * Easy <a href="https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three/">2455. Average Value of Even Numbers That Are Divisible by Three</a>
