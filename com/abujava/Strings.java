@@ -15,6 +15,13 @@ import java.util.stream.Collectors;
  */
 public class Strings {
     /**
+     * Easy <a href="https://leetcode.com/problems/add-strings">415. Add Strings</a>
+     */
+    public static String addStrings(String num1, String num2) {
+        return new BigInteger(num1).add(new BigInteger(num2)).toString();
+    }
+
+    /**
      * Easy <a href="https://leetcode.com/problems/reverse-string">344. Reverse String</a>
      */
     public static void reverseString(char[] s) {

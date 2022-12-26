@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = HashTable.majorityElement(new int[]{3, 2, 3});
+        var res = Array.isAnagram("anagram", "nagaram");
         System.out.println(res);
     }
 
