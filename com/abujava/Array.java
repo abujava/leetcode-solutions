@@ -1,8 +1,16 @@
 package com.abujava;
 
+import java.lang.Math;
 import java.util.*;
 
 public class Array {
+    /**
+     * Medium <a href="https://leetcode.com/problems/powx-n">50. Pow(x, n)</a>
+     */
+    public double myPow(double x, int n) {
+        return java.lang.Math.pow(x, n);
+    }
+
     /**
      * Easy <a href="https://leetcode.com/problems/valid-anagram">242. Valid Anagram</a>
      */

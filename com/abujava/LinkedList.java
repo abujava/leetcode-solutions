@@ -4,19 +4,34 @@ package com.abujava;
  * Definition for singly-linked list.
  */
 public class LinkedList {
-    public static ListNode reverseList(ListNode head) { // 1, 2, 3, 4
-        var previous = head;          // 1, 2, 3, 4     |
-        var current = head.next;      // 2, 3, 4        |
-        while (current != null) {     // true           |
-            var next = current.next;  // 3, 4           |
+    /**
+     * Medium <a href="https://leetcode.com/problems/add-two-numbers">2. Add Two Numbers</a>
+     */
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode();
+        ListNode temp = result;
 
-            current.next = previous;  //
-            previous = current;
-            previous.next = null;
-            current = next;
+        int res = 0;
+        while (true) {
+            int sum = 0;
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+
+            temp.val = (res + sum) % 10;
+            res = (res + sum) / 10;
+
+            if (l1 == null && l2 == null && res == 0) {
+                return result;
+            }
+
+            temp = temp.next = new ListNode();
         }
-
-        return previous;
     }
 
     /**
