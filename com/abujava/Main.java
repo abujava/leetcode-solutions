@@ -1,5 +1,6 @@
 package com.abujava;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -10,8 +11,8 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = Math.reverse(-2147483648);
-        System.out.println(res);
+        var res = HashTable.topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2);
+        System.out.println(Arrays.toString(res));
 
     }
 
