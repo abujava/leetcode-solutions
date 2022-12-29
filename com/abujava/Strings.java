@@ -14,6 +14,27 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/first-unique-character-in-a-string">387. First Unique Character in a String</a>
+     */
+    public int firstUniqChar(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            boolean b = true;
+            for (int j = 0; j < chars.length; j++) {
+                if (i != j && chars[i] == chars[j]) {
+                    b = false;
+                    break;
+                }
+            }
+            if (b) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     /**
      * Easy <a href="https://leetcode.com/problems/add-strings">415. Add Strings</a>
      */

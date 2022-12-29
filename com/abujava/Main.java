@@ -10,8 +10,9 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = Array.isAnagram("anagram", "nagaram");
+        var res = Math.reverse(-2147483648);
         System.out.println(res);
+
     }
 
     private static int[][] buildMatrix(int row, int col) {
