@@ -10,9 +10,8 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = Math.reverse(-2147483648);
+        var res = Array.pivotIndex(new int[]{1,7,3,6,5,6});
         System.out.println(res);
-
     }
 
     private static int[][] buildMatrix(int row, int col) {

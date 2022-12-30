@@ -8,6 +8,21 @@ import java.util.stream.Collectors;
  */
 public class HashTable {
     /**
+     * Medium <a href="https://leetcode.com/problems/top-k-frequent-elements">347. Top K Frequent Elements</a>
+     */
+    public static int[] topKFrequent(int[] nums, int k) {
+        SortedMap<Integer, Integer> sortedMap = new TreeMap<>(Comparator.reverseOrder());
+        for (int num : nums) {
+            sortedMap.put(num, sortedMap.getOrDefault(num, 0) + 1);
+        }
+
+        return sortedMap.entrySet().stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()))
+                .limit(k)
+                .mapToInt(Map.Entry::getKey)
+                .toArray();
+    }
+
+    /**
      * Medium <a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/">442. Find All Duplicates in an Array</a>
      */
     public static List<Integer> findDuplicates(int[] nums) {
