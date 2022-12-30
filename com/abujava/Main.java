@@ -1,6 +1,5 @@
 package com.abujava;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -11,9 +10,8 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = HashTable.topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2);
-        System.out.println(Arrays.toString(res));
-
+        var res = Array.pivotIndex(new int[]{1,7,3,6,5,6});
+        System.out.println(res);
     }
 
     private static int[][] buildMatrix(int row, int col) {

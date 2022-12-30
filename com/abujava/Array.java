@@ -4,6 +4,27 @@ import java.lang.Math;
 import java.util.*;
 
 public class Array {
+    public static int pivotIndex(int[] nums) {
+        int length = nums.length;
+        int[] rightSum = new int[length];
+        System.arraycopy(nums, 0, rightSum, 0, length);
+
+        for (int i = 1; i < length; i++) {
+            nums[i] += nums[i - 1];
+        }
+
+        for (int i = nums.length - 2; i >= 0; i--) {
+            rightSum[i] += rightSum[i + 1];
+        }
+
+        for (int i = 0; i < length; i++) {
+            if (nums[i] == rightSum[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     /**
      * Medium <a href="https://leetcode.com/problems/powx-n">50. Pow(x, n)</a>
      */
