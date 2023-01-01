@@ -4,6 +4,22 @@ import java.lang.Math;
 import java.util.*;
 
 public class Array {
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/flipping-an-image">832. Flipping an Image</a>
+     */
+    public static int[][] flipAndInvertImage(int[][] image) {
+        int length = image.length;
+        for (int i = 0; i < length; i++) {
+            for (int left = 0, right = length - 1; left <= right; left++, right--) {
+                int temp = image[i][left];
+                image[i][left] = image[i][right] == 0 ? 1 : 0;
+                image[i][right] = temp == 0 ? 1 : 0;
+            }
+        }
+        return image;
+    }
+
     /**
      * Medium <a href="https://leetcode.com/problems/container-with-most-water">11. Container With Most Water</a>
      */

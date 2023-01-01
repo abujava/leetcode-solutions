@@ -4,6 +4,51 @@ package com.abujava;
  * Definition for singly-linked list.
  */
 public class LinkedList {
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/merge-two-sorted-lists/submissions">21. Merge Two Sorted Lists</a> <br/>
+     * Runtime 0 ms Beats 100% <br/>
+     * Memory  41.6 MB  Beats  90.44%
+     */
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        if (list1 == null && list2 == null) {
+            return list1;
+        }
+
+        ListNode result = new ListNode();
+        ListNode temp = result;
+
+        while (true) {
+            int l1 = Integer.MAX_VALUE - 1;
+            int l2 = Integer.MAX_VALUE - 2;
+
+            if (list1 != null) {
+                l1 = list1.val;
+            }
+
+            if (list2 != null) {
+                l2 = list2.val;
+            } else {
+                l2 += 2;
+            }
+
+            if (l1 <= l2) {
+                temp.val = l1;
+                list1 = list1.next;
+            } else {
+                temp.val = l2;
+                list2 = list2.next;
+            }
+
+            if (list1 == null && list2 == null) {
+                return result;
+            }
+            temp = temp.next = new ListNode();
+        }
+
+    }
+
     /**
      * Medium <a href="https://leetcode.com/problems/add-two-numbers">2. Add Two Numbers</a>
      */
