@@ -4,6 +4,25 @@ import java.lang.Math;
 import java.util.*;
 
 public class Array {
+    /**
+     * Medium <a href="https://leetcode.com/problems/container-with-most-water">11. Container With Most Water</a>
+     */
+    public static int maxArea(int[] height) {
+        int maxarea = 0;
+        int left = 0;
+        int right = height.length - 1;
+        while (left < right) {
+            int width = right - left;
+            maxarea = Math.max(maxarea, Math.min(height[left], height[right]) * width);
+            if (height[left] <= height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxarea;
+    }
+
     public static int pivotIndex(int[] nums) {
         int length = nums.length;
         int[] rightSum = new int[length];

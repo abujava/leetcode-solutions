@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = Array.pivotIndex(new int[]{1,7,3,6,5,6});
+        var res = Array.maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7});
         System.out.println(res);
     }
 
