@@ -1,10 +1,7 @@
 package com.abujava;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -14,6 +11,51 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/isomorphic-strings">205. Isomorphic Strings</a>
+     */
+    public static boolean isIsomorphic(String s, String t) {
+        HashMap<Character, Character> map = new HashMap<>(s.length());
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                if (!map.get(s.charAt(i)).equals(t.charAt(i))) {
+                    return false;
+                }
+            } else {
+                map.put(s.charAt(i), t.charAt(i));
+            }
+        }
+
+        map.clear();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(t.charAt(i))) {
+                if (!map.get(t.charAt(i)).equals(s.charAt(i))) {
+                    return false;
+                }
+            } else {
+                map.put(t.charAt(i), s.charAt(i));
+            }
+        }
+
+        return true;
+    }
+
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/is-subsequence">392. Is Subsequence</a>
+     */
+    public static boolean isSubsequence(String s, String t) {
+        int sub = 0, word = 0;
+        while (sub < s.length() && word < t.length()) {
+            if (s.charAt(sub) == t.charAt(word)) {
+                sub++;
+            }
+            word++;
+        }
+        return sub == s.length();
+    }
 
     /**
      * Easy <a href="https://leetcode.com/problems/first-unique-character-in-a-string">387. First Unique Character in a String</a>
@@ -73,8 +115,6 @@ public class Strings {
         return sum;
     }
 
-    //    47373
-//    01234
     public static boolean subNumDecodings(int num) {
         return (num > 0 && num < 27);
     }

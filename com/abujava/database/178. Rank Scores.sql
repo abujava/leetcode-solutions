@@ -1,4 +1,4 @@
--- 178. Rank Scores - https://leetcode.com/problems/rank-scores/
+-- Medium 178. Rank Scores - https://leetcode.com/problems/rank-scores/
 
 Create table If Not Exists Scores (id int, score DECIMAL(3,2));
 Truncate table Scores;
