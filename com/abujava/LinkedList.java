@@ -4,6 +4,20 @@ package com.abujava;
  * Definition for singly-linked list.
  */
 public class LinkedList {
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        var a = head;
+        var b = head;
+
+        for (int i = 0; i < n; i++) {
+            a = a.next;
+        }
+
+        while (a != null) {
+            a = a.next;
+            b = b.next;
+        }
+        return head;
+    }
 
     /**
      * Easy <a href="https://leetcode.com/problems/merge-two-sorted-lists/submissions">21. Merge Two Sorted Lists</a> <br/>

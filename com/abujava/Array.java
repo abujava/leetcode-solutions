@@ -4,6 +4,9 @@ import java.lang.Math;
 import java.util.*;
 
 public class Array {
+    public static int maxProfit(int[] prices) {
+        return -1;
+    }
 
     /**
      * Easy <a href="https://leetcode.com/problems/flipping-an-image">832. Flipping an Image</a>

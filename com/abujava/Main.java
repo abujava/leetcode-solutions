@@ -10,10 +10,7 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = LinkedList.mergeTwoLists(
-                new ListNode(1, null),
-                null
-        );
+        var res = Math.maximum69Number(9669);
         System.out.println(res);
     }
 
