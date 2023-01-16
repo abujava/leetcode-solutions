@@ -18,6 +18,7 @@ public class Main {
     }
 
     private static int[][] buildMatrix(int row, int col) {
+
         int[][] matrix = new int[col][row];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
