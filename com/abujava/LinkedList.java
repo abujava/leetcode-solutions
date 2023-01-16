@@ -4,11 +4,16 @@ package com.abujava;
  * Definition for singly-linked list.
  */
 public class LinkedList {
+    /**
+     * Medium <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list">19. Remove Nth Node From End of List</a>
+     */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        var a = head;
-        var b = head;
+        ListNode res = new ListNode(0);
+        res.next = head;
+        ListNode a = res;
+        ListNode b = res;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i <= n + 1; i++) {
             a = a.next;
         }
 
@@ -16,7 +21,8 @@ public class LinkedList {
             a = a.next;
             b = b.next;
         }
-        return head;
+        b.next = b.next.next;
+        return res.next;
     }
 
     /**

@@ -10,7 +10,10 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var res = Math.maximum69Number(9669);
+        var res = LinkedList.removeNthFromEnd(
+                new ListNode(1), 1
+
+        );
         System.out.println(res);
     }
 
