@@ -9,11 +9,17 @@ import java.util.Random;
  * @since 12/15/2022
  */
 public class Main {
-    public static void main(String[] args) {
-        var res = LinkedList.removeNthFromEnd(
-                new ListNode(1), 1
-
-        );
+    public static void main(String[] args) { // 0,3,1,0,4,5,2,0
+        var res = LinkedList.getIntersectionNode(
+                new ListNode(0,
+                        new ListNode(3,
+                                new ListNode(1,
+                                        new ListNode(0,
+                                                new ListNode(0,
+                                                        new ListNode(5,
+                                                                new ListNode(2,
+                                                                        new ListNode(0))))
+                                        )))), null);
         System.out.println(res);
     }
 

@@ -11,6 +11,12 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+    public static String convert(String s, int numRows) {
+        char[] chars = s.toCharArray();
+        int[][] matrix = new int[numRows][s.length() / numRows];
+        Main.printMatrix(matrix);
+        return "";
+    }
 
     /**
      * Easy <a href="https://leetcode.com/problems/isomorphic-strings">205. Isomorphic Strings</a>
