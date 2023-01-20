@@ -7,6 +7,58 @@ import java.util.stream.Collectors;
  * Tag: <a href="https://leetcode.com/tag/hash-table/">Hashtable</a>
  */
 public class HashTable {
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/majority-element">169. Majority Element</a>
+     */
+    public int majorityElement2(int[] nums) {
+        // Arrays.sort(nums);
+        // return nums[nums.length/2];
+
+        Map<Integer, Integer> sums = new HashMap<>(nums.length);
+        for (int num : nums) {
+            sums.put(num, sums.getOrDefault(num, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : sums.entrySet()) {
+            if (entry.getValue() > nums.length / 2)
+                return entry.getKey();
+        }
+        return -1;
+    }
+
+    public static int countDistinctIntegers(int[] nums) {
+        int[] dupArray = new int[nums.length * 2];
+        System.arraycopy(nums, 0, dupArray, 0, nums.length);
+        for (int i = nums.length; i < dupArray.length; i++) {
+            dupArray[i] = -9;
+        }
+        System.out.println(Arrays.toString(dupArray));
+        return -1;
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/decode-the-message/">2325. Decode the Message</a>
+     */
+    public static String decodeMessage(String key, String message) {
+        HashMap<Character, Character> map = new HashMap<>();
+
+        int j = 0;
+        char[] chars = key.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] != ' ' && !map.containsKey(chars[i])) {
+                map.put(chars[i], (char) (97 + j));
+                j++;
+            }
+        }
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < message.length(); i++) {
+            char c = message.charAt(i);
+            builder.append(c == ' ' ? ' ' : map.get(c));
+        }
+        return builder.toString();
+    }
+
     /**
      * Medium <a href="https://leetcode.com/problems/top-k-frequent-elements">347. Top K Frequent Elements</a>
      */

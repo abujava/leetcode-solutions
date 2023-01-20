@@ -5,6 +5,45 @@ package com.abujava;
  */
 public class LinkedList {
     /**
+     * Easy <a href="https://leetcode.com/problems/intersection-of-two-linked-lists">160. Intersection of Two Linked Lists</a>
+     * Runtime 0ms 100%
+     */
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        var temp = headA;
+        int aCount = 0;
+        while (temp != null) {
+            aCount++;
+            temp = temp.next;
+        }
+
+        temp = headB;
+        int bCount = 0;
+
+        while (temp != null) {
+            bCount++;
+            temp = temp.next;
+        }
+
+        int same = java.lang.Math.max(aCount, bCount) - java.lang.Math.min(aCount, bCount);
+        for (int i = 0; i < same; i++) {
+            if (aCount > bCount) {
+                headA = headA.next;
+            } else {
+                headB = headB.next;
+            }
+        }
+
+        while (true) {
+            if (headA == headB) {
+                return headA;
+            } else {
+                headB = headB.next;
+                headA = headA.next;
+            }
+        }
+    }
+
+    /**
      * Medium <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list">19. Remove Nth Node From End of List</a>
      */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
