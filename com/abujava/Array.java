@@ -4,8 +4,19 @@ import java.lang.Math;
 import java.util.*;
 
 public class Array {
-    public static int maxProfit(int[] prices) {
-        return -1;
+    public static int[] canSeePersonsCount(int[] heights) {
+        int[] arr = new int[heights.length];
+
+        for (int i = 0; i < heights.length; i++) {
+            int max = 0;
+            for (int j = i + 1; j < heights.length; j++) {
+                if (heights[j] > max) {
+                    arr[i]++;
+                    max = heights[j];
+                }
+            }
+        }
+        return arr;
     }
 
     /**

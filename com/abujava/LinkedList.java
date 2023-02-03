@@ -1,9 +1,68 @@
 package com.abujava;
 
+import java.util.PriorityQueue;
+
 /**
- * Definition for singly-linked list.
+ * Tag: <a href="https://leetcode.com/tag/linked-list/">LinkedList</a>
  */
 public class LinkedList {
+    public static ListNode sortList(ListNode head) {
+        if (head == null) return null;
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        while (head != null) {
+            queue.add(head.val);
+            head = head.next;
+        }
+
+        ListNode dummy = new ListNode(queue.poll());
+        ListNode temp = dummy;
+
+        while (!queue.isEmpty()){
+            temp = temp.next = new ListNode(queue.poll());
+        }
+
+        return dummy;
+
+    }
+
+    /**
+     * Medium <a href="https://leetcode.com/problems/rotate-list">61. Rotate List</a>
+     */
+    public static ListNode rotateRight(ListNode head, int k) {
+        if (head == null) return head;
+
+        ListNode tail = head;
+        int length = 1;
+        while (tail.next != null) {
+            tail = tail.next;
+            length++;
+        }
+
+        tail.next = head;
+
+        for (int i = 0; i < (length - k % length); i++) {
+            tail = tail.next;
+        }
+
+        head = tail.next;
+        tail.next = null;
+        return head;
+    }
+
+    public static ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode current = head;
+
+        while (current != null) {
+            var next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
+
     /**
      * Easy <a href="https://leetcode.com/problems/intersection-of-two-linked-lists">160. Intersection of Two Linked Lists</a>
      * Runtime 0ms 100%
