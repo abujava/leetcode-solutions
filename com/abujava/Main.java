@@ -9,18 +9,12 @@ import java.util.Random;
  * @since 12/15/2022
  */
 public class Main {
-    public static void main(String[] args) { // 0,3,1,0,4,5,2,0
-        var res = LinkedList.getIntersectionNode(
-                new ListNode(0,
-                        new ListNode(3,
-                                new ListNode(1,
-                                        new ListNode(0,
-                                                new ListNode(0,
-                                                        new ListNode(5,
-                                                                new ListNode(2,
-                                                                        new ListNode(0))))
-                                        )))), null);
-        System.out.println(res);
+    public static void main(String[] args) {
+        var result = LinkedList.sortList(
+                new ListNode(4, new ListNode(2, new ListNode(1, new ListNode(3))))
+
+        );
+        System.out.println(result);
     }
 
     private static int[][] buildMatrix(int row, int col) {

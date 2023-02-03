@@ -4,6 +4,15 @@ package com.abujava;
  * Tag: <a href="https://leetcode.com/tag/math/">Math</a>
  */
 public class Math {
+    public static int fib(int n) {
+        String s = "2004";
+        int i = Integer.parseInt(s);
+        System.out.println(i);
+
+        if (n <= 0) return 0;
+        return n - 1 + fib(n - 2);
+    }
+
     /**
      * Easy <a href="https://leetcode.com/problems/maximum-69-number">1323. Maximum 69 Number</a>
      */

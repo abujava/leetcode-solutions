@@ -7,6 +7,63 @@ import java.util.stream.Collectors;
  * Tag: <a href="https://leetcode.com/tag/hash-table/">Hashtable</a>
  */
 public class HashTable {
+    public static boolean divideArray(int[] nums) {
+        int pair = nums.length / 2;
+        Arrays.sort(nums);
+        System.out.println(Arrays.toString(nums));
+
+        for (int i = 1, j = 1; i < nums.length; i++, j++) {
+            nums[i - 1] += nums[i];
+        }
+
+        return false;
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/first-letter-to-appear-twice/">2351. First Letter to Appear Twice</a>
+     */
+    public static char repeatedCharacter(String s) {
+        int[] count = new int[26];
+        for (char c : s.toCharArray()) {
+            count[c - 'a']++;
+            if (count[c - 'a'] == 2) {
+                return c;
+            }
+        }
+
+        return '\0';
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/sum-of-unique-elements">1748. Sum of Unique Elements</a>
+     */
+    public static int sumOfUnique(int[] nums) {
+        // Map<Integer, Integer> map = new HashMap<>(nums.length);
+        // for (int num : nums) {
+        //     map.put(num, map.getOrDefault(num, 0) + 1);
+        // }
+        // int sum = 0;
+        // for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        //     if (entry.getValue() == 1){
+        //         sum+=entry.getKey();
+        //     }
+        // }
+        // return sum;
+
+        int[] arr = new int[101];
+        int sum = 0;
+
+        for (int num : nums) {
+            arr[num]++;
+            if (arr[num] == 1) {
+                sum += num;
+            } else if (arr[num] == 2) {
+                sum -= num;
+            }
+        }
+
+        return sum;
+    }
 
     /**
      * Easy <a href="https://leetcode.com/problems/majority-element">169. Majority Element</a>
