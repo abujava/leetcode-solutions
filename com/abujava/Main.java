@@ -10,10 +10,7 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var result = LinkedList.sortList(
-                new ListNode(4, new ListNode(2, new ListNode(1, new ListNode(3))))
-
-        );
+        var result = Array.firstMissingPositive(new int[]{7,8,9,11,12});
         System.out.println(result);
     }
 
