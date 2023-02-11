@@ -4,6 +4,48 @@ import java.lang.Math;
 import java.util.*;
 
 public class Array {
+
+    /**
+     * Hard <a href="https://leetcode.com/problems/first-missing-positive/">41. First Missing Positive</a><br/>
+     * Runtime: 1 ms Beats: 100% <br/>
+     * Memory: 50.2 MB Beats: 92.63%
+     */
+    public static int firstMissingPositive(int[] nums) {
+        if (nums.length == 1) {
+            if (nums[0] == 1) {
+                return 2;
+            } else {
+                return 1;
+            }
+        }
+
+        int[] arr = new int[nums.length];
+        for (int num : nums) {
+            if (num > 0 && num <= nums.length) {
+                arr[num - 1] = num;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i + 1) {
+                return i + 1;
+            }
+        }
+
+        return arr.length + 1;
+    }
+
+    public static int findNumbers(int[] nums) { // [12,345,2,6,7896]
+        int sum = 0;
+
+        for (int num : nums) {
+            if ((num > 9 && num < 100) || (num >= 1000 && num < 10000) || num == 100000) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
     public static int[] canSeePersonsCount(int[] heights) {
         int[] arr = new int[heights.length];
 

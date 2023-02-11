@@ -6,6 +6,54 @@ import java.util.PriorityQueue;
  * Tag: <a href="https://leetcode.com/tag/linked-list/">LinkedList</a>
  */
 public class LinkedList {
+    public static ListNode reverseBetween(ListNode head, int left, int right) {
+        // OK, I AM USE A DIVIDE AND CONQUER TECHNIQUE
+        if (head == null || head.next == null){
+            return head;
+        }
+
+        ListNode start = head;
+        for (int i = 1; i < left; i++) {
+            start = start.next;
+        }
+
+        ListNode from = start.next;
+        start.next = null;
+        ListNode to = from;
+        while (to.val != right){
+            to = to.next;
+        }
+
+        ListNode end = to.next;
+        to.next = null;
+
+        ListNode reversed = reverseList(from);
+        start.next = reversed;
+
+        while (reversed.next != null){
+            reversed = reversed.next;
+        }
+        reversed.next = end;
+
+        return start;
+    }
+
+    public static ListNode deleteDuplicates(ListNode head) {
+        ListNode result = new ListNode(-101);
+        ListNode dummy = result;
+
+        while (head != null) {
+            if (head.val != dummy.val) {
+                dummy.next = new ListNode(head.val);
+                dummy = dummy.next;
+            }
+            head = head.next;
+        }
+
+        return result.next;
+    }
+
+
     public static ListNode sortList(ListNode head) {
         if (head == null) return null;
         PriorityQueue<Integer> queue = new PriorityQueue<>();
@@ -17,7 +65,7 @@ public class LinkedList {
         ListNode dummy = new ListNode(queue.poll());
         ListNode temp = dummy;
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             temp = temp.next = new ListNode(queue.poll());
         }
 

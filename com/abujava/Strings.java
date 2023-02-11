@@ -11,6 +11,19 @@ import java.util.stream.Collectors;
  * @since 12/15/2022
  */
 public class Strings {
+
+    static char[] letters = new char[]{'-', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
+    public static boolean allUpperCase(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            boolean upperCase = Character.isUpperCase(s.charAt(i));
+            if (!upperCase) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static String convert(String s, int numRows) {
         char[] chars = s.toCharArray();
         int[][] matrix = new int[numRows][s.length() / numRows];
