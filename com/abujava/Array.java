@@ -11,14 +11,6 @@ public class Array {
      * Memory: 50.2 MB Beats: 92.63%
      */
     public static int firstMissingPositive(int[] nums) {
-        if (nums.length == 1) {
-            if (nums[0] == 1) {
-                return 2;
-            } else {
-                return 1;
-            }
-        }
-
         int[] arr = new int[nums.length];
         for (int num : nums) {
             if (num > 0 && num <= nums.length) {

@@ -1,5 +1,6 @@
 package com.abujava;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,8 +11,8 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var result = Array.firstMissingPositive(new int[]{7,8,9,11,12});
-        System.out.println(result);
+        List<String> strings = HashTable.letterCombinations("23");
+        System.out.println(strings);
     }
 
     private static int[][] buildMatrix(int row, int col) {

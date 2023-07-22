@@ -4,6 +4,31 @@ package com.abujava;
  * Tag: <a href="https://leetcode.com/tag/math/">Math</a>
  */
 public class Math {
+    public static int countDigitOne(int n) {
+        int countt = 0;
+        int l = 0;
+        for(int i = 1; i <= n; i++){
+            l = i;
+            while(l != 0){
+                if(l % 10 == 1) countt++;
+                l /= 10;
+            }
+        }
+        return countt;
+    }
+
+    public static int mysum(int son) {
+        int n = 0;
+        int count = 0;
+        while (son != 0) {
+            n = son % 10;
+            son = son / 10;
+            if (n == 1) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /**
      * Medium <a href="https://leetcode.com/problems/reverse-integer">7. Reverse Integer</a>

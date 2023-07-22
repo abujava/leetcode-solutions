@@ -7,6 +7,44 @@ import java.util.stream.Collectors;
  * Tag: <a href="https://leetcode.com/tag/hash-table/">Hashtable</a>
  */
 public class HashTable {
+    private static final Map<Integer, List<String>> phoneKeyboard = new HashMap<>(
+            Map.of(
+                    2, List.of("a", "b", "c"),
+                    3, List.of("d", "e", "f"),
+                    4, List.of("g", "h", "i"),
+                    5, List.of("j", "k", "l"),
+                    6, List.of("m", "n", "o"),
+                    7, List.of("p", "q", "r", "s"),
+                    8, List.of("t", "u", "v"),
+                    9, List.of("w", "x", "y", "z")
+            )
+    );
+
+    public static List<String> letterCombinations(String digits) {
+
+        if (digits.length() == 1) {
+            return phoneKeyboard.get(Integer.parseInt(digits));
+        }
+
+        List<String> result = new ArrayList<>();
+        char[] charArray = digits.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            for (int j = i; j < charArray.length; j++) {
+                if (i != j) {
+                    List<String> k = phoneKeyboard.get(Character.getNumericValue(charArray[i]));
+                    List<String> l = phoneKeyboard.get(Character.getNumericValue(charArray[j]));
+
+                    for (int m = 0; m < k.size(); m++) {
+                        for (int n = 0; n < l.size(); n++) {
+                            result.add(k.get(m) + l.get(n));
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     public static boolean divideArray(int[] nums) {
         int pair = nums.length / 2;
         Arrays.sort(nums);
