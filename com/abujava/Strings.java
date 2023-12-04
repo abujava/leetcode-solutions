@@ -12,7 +12,18 @@ import java.util.stream.Collectors;
  */
 public class Strings {
 
-    static char[] letters = new char[]{'-', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    private static final char[] letters = new char[]{'-', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
+    public static int percentageLetter(String s, char letter) {
+        double count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == letter) {
+                count++;
+            }
+        }
+        return (int) (count / s.length() * 100);
+    }
+
 
     public static boolean allUpperCase(String s) {
         for (int i = 0; i < s.length(); i++) {
@@ -28,6 +39,44 @@ public class Strings {
         char[] chars = s.toCharArray();
         int[][] matrix = new int[numRows][s.length() / numRows];
         Main.printMatrix(matrix);
+        return "";
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/longest-common-prefix">14. Longest Common Prefix</a>
+     */
+    public static String longestCommonPrefix(String[] strs) {
+        int currentIndex = 0;
+
+        while (true) {
+            char expectationChar = '0';
+            for (String str : strs) {
+                if (str.length() == currentIndex) {
+                    return strs[0].substring(0, currentIndex);
+                }
+
+                char currentChar = str.charAt(currentIndex);
+
+                if (expectationChar == '0') {
+                    expectationChar = currentChar;
+                } else if (expectationChar != currentChar) {
+                    return strs[0].substring(0, currentIndex);
+                }
+            }
+            currentIndex++;
+        }
+    }
+
+    /**
+     * Easy <a href="https://leetcode.com/problems/largest-3-same-digit-number-in-string/description">2264. Largest 3-Same-Digit Number in String</a>
+     */
+    public String largestGoodInteger(String num) {
+        String[] strings = new String[]{"999", "888", "777", "666", "555", "444", "333", "222", "111", "000"};
+        for (String s : strings) {
+            if (num.contains(s)) {
+                return s;
+            }
+        }
         return "";
     }
 

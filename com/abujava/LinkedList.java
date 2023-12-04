@@ -1,6 +1,11 @@
 package com.abujava;
 
+import com.sun.management.GarbageCollectionNotificationInfo;
+import com.sun.management.GarbageCollectorMXBean;
+
+import javax.management.openmbean.CompositeData;
 import java.util.PriorityQueue;
+import java.util.Stack;
 
 /**
  * Tag: <a href="https://leetcode.com/tag/linked-list/">LinkedList</a>
@@ -8,7 +13,7 @@ import java.util.PriorityQueue;
 public class LinkedList {
     public static ListNode reverseBetween(ListNode head, int left, int right) {
         // OK, I AM USE A DIVIDE AND CONQUER TECHNIQUE
-        if (head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -20,7 +25,7 @@ public class LinkedList {
         ListNode from = start.next;
         start.next = null;
         ListNode to = from;
-        while (to.val != right){
+        while (to.val != right) {
             to = to.next;
         }
 
@@ -30,7 +35,7 @@ public class LinkedList {
         ListNode reversed = reverseList(from);
         start.next = reversed;
 
-        while (reversed.next != null){
+        while (reversed.next != null) {
             reversed = reversed.next;
         }
         reversed.next = end;
@@ -53,7 +58,6 @@ public class LinkedList {
         return result.next;
     }
 
-
     public static ListNode sortList(ListNode head) {
         if (head == null) return null;
         PriorityQueue<Integer> queue = new PriorityQueue<>();
@@ -71,6 +75,21 @@ public class LinkedList {
 
         return dummy;
 
+    }
+
+    public static ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode current = head;
+        ListNode next = head.next;
+
+        while (true) {
+            current.next = next.next;
+            next.next = current;
+            System.out.println("sds");
+        }
     }
 
     /**
@@ -289,20 +308,36 @@ public class LinkedList {
     }
 
     public static boolean isPalindrome(ListNode head) {
-        var slow = head;
-        var fast = head;
+        if (head == null || head.next == null) {
+            return true;
+        }
 
+        // Find the middle of the linked list
+        ListNode slow = head;
+        ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        while (head != null && head.next != null && slow != null && slow.next != null) {
-            if (head.val != slow.val) {
+
+        // Reverse the second half of the linked list
+        ListNode prev = null;
+        while (slow != null) {
+            ListNode temp = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = temp;
+        }
+
+        // Compare the first and reversed second halves
+        ListNode p1 = head;
+        ListNode p2 = prev;
+        while (p2 != null) {
+            if (p1.val != p2.val) {
                 return false;
-            } else {
-                slow = slow.next;
-                head = head.next;
             }
+            p1 = p1.next;
+            p2 = p2.next;
         }
 
         return true;

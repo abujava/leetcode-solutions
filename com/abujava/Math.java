@@ -3,14 +3,37 @@ package com.abujava;
 /**
  * Tag: <a href="https://leetcode.com/tag/math/">Math</a>
  */
-public class Math {
+public class Math implements RomanNumbers {
+
+
+    /**
+     * Medium <a href="https://leetcode.com/problems/integer-to-roman/">12. Integer to Roman</a>
+     * Symbol  ====     Value   <br/>
+     * I       ====     1      <br/>
+     * V       ====     5      <br/>
+     * X       ====     10     <br/>
+     * L       ====     50     <br/>
+     * C       ====     100    <br/>
+     * D       ====     500    <br/>
+     * M       ====     1000   <br/>
+     */
+    public static String intToRoman(int num) {
+        // return RN_M[num / 1000] + RN_C[num / 100 % 100] + RN_X[num / 100 % 10] + RN_I[num % 10];
+        StringBuilder stringBuilder = new StringBuilder()
+                .append(RN_M[num / 1000])
+                .append(RN_C[num / 100 % 100])
+                .append(RN_X[num / 100 % 10])
+                .append(RN_I[num % 10]);
+        return stringBuilder.toString();
+    }
+
     public static int countDigitOne(int n) {
         int countt = 0;
         int l = 0;
-        for(int i = 1; i <= n; i++){
+        for (int i = 1; i <= n; i++) {
             l = i;
-            while(l != 0){
-                if(l % 10 == 1) countt++;
+            while (l != 0) {
+                if (l % 10 == 1) countt++;
                 l /= 10;
             }
         }
@@ -79,7 +102,6 @@ public class Math {
     public static int getIntPlace(int num) {
         return num == 4 ? 1000 : num == 3 ? 100 : num == 2 ? 10 : 1;
     }
-
 
     /**
      * Easy <a href="https://leetcode.com/problems/find-the-pivot-integer">2485. Find the Pivot Integer</a>
