@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        var result = Strings.longestCommonPrefix(new String[]{"flower","flow","flight"});
+        var result = Math.numberOfMatches(3);
         System.out.println(result);
     }
 
