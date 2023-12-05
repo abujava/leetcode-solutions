@@ -5,6 +5,32 @@ package com.abujava;
  */
 public class Math implements RomanNumbers {
 
+    public static int totalMoney(int n) {
+        int start = 1;
+        int money = 0;
+        for (int i = 0; i < n / 7; i++) {
+            money += subBetween(start, start + 7);
+            start++;
+        }
+        return money + subBetween(start, start + (n % 7));
+    }
+
+    public static int subBetween(int min, int max) {
+        int sum = 0;
+        for (int i = min; i < max; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    public static int numberOfMatches(int teams) {
+        return teams - 1;
+        // int matches = 0;
+        // for (int i = teams; i > 1; i = (i / 2 + i % 2)) {
+        //     matches += (i / 2);
+        // }
+        // return matches;
+    }
 
     /**
      * Medium <a href="https://leetcode.com/problems/integer-to-roman/">12. Integer to Roman</a>
