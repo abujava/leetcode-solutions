@@ -5,6 +5,14 @@ package com.abujava;
  */
 public class Math implements RomanNumbers {
 
+    public static int numberOfMatches(int teams) {
+        return teams - 1;
+        // int matches = 0;
+        // for (int i = teams; i > 1; i = (i / 2 + i % 2)) {
+        //     matches += (i / 2);
+        // }
+        // return matches;
+    }
     public static int totalMoney(int n) {
         int start = 1;
         int money = 0;
